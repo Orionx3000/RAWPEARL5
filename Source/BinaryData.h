@@ -6,8 +6,8 @@ namespace BinaryData {
 
     const char* getNamedResource(const char* resourceName, int& dataSizeFound);
 
-    extern const char* assets_index_B5bR348V_js;
-    extern const int assets_index_B5bR348V_jsSize;
+    extern const char* assets_index_B7drWqn8_js;
+    extern const int assets_index_B7drWqn8_jsSize;
     extern const char* assets_index_Cs_pPWin_css;
     extern const int assets_index_Cs_pPWin_cssSize;
     extern const char* index_html;

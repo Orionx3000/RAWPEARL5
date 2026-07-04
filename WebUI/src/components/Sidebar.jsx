@@ -27,8 +27,12 @@ export default function Sidebar({ asciiDict, selectedChar, onSelectChar, onPrevi
       </div>
 
       <div className="flex-1 overflow-y-auto pr-1 flex flex-col gap-1 text-[10px] uppercase">
-        {/* ─── FLAT DSP SYMBOLS (no nesting) ─── */}
-        {Object.entries(asciiDict).map(([category, items]) => (
+        {/* ─── FLAT DSP SYMBOLS (no nesting, PERCUSSION last) ─── */}
+        {Object.entries(asciiDict).sort(([a], [b]) => {
+          if (a === 'PERCUSSION') return 1;
+          if (b === 'PERCUSSION') return -1;
+          return 0;
+        }).map(([category, items]) => (
           <div key={category}>
             <div className="font-bold text-[10px] py-1 px-1 text-[rgba(255,204,0,0.6)] border-b border-[rgba(255,204,0,0.05)]">
               [{category.replace(/\s+/g, '_')}]
