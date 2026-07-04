@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  padding: 0;
+  background: #000;
+  overflow: hidden;
+  font-family: monospace;
+}
+
+@keyframes matrixFlash {
+  0% { transform: scale(1.3); filter: brightness(2) contrast(1.5); }
+  100% { transform: scale(1); filter: brightness(1) contrast(1); }
+}
+
+.custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: #010101; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+.grid-cell { border-right: 1px solid rgba(255, 255, 255, 0.03); cursor: crosshair; }
+.active-note { background: #10b981 !important; box-shadow: 0 0 20px rgba(16, 185, 129, 0.9); transform: scale(0.92); border-radius: 2px; z-index: 10; }
+.playhead { will-change: transform; pointer-events: none; background: rgba(16, 185, 129, 0.1); border-left: 1px solid #10b981; z-index: 20; }

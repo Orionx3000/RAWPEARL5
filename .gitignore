@@ -1,0 +1,31 @@
+# Build outputs
+build/
+build_ui.ps1
+dist/
+
+# Dependencies
+WebUI/node_modules/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Temp files
+temp_*.js
+temp_*.jsx
+
+# Scripts
+gen_binary_data.py
+script.js
+crop_and_convert_icon.py
+
+# License file (not needed in repo)
+LICENSE

@@ -1,0 +1,103 @@
+{
+  "description": "TMB 3-Layer Domain Database: Each symbol has three domains (t/m/b). When placed on a layer, only that domain's params are used. Missing domains = {} (contributes nothing). Mid empty = silence. Hellenic chars are channel types only, excluded from grid.",
+  "domains": {
+    "t": "Spatial/Modulation/Routing — delay, reverb, ratchet, pan mod, probability, loop, micro timing",
+    "m": "Source/Timbre — oscillator type, velocity, strike character, noise/FM flags, percussion type (required trigger)",
+    "b": "Texture/Envelope — attack/decay/release mod, staccato, swell, grain density, distortion, filter sweep, LFO envelope"
+  },
+
+  "symbols": {
+
+    " ": { "t": {}, "m": {}, "b": {}, "desc": "Empty/Silence" },
+
+    "~": { "t": { "delaySend": 0.4 }, "m": { "oscillator": "sine", "velocity": 0.5 }, "b": {}, "desc": "Delay Send — wave shape = modulation" },
+    "*": { "t": { "reverbSend": 0.4 }, "m": { "addWhiteNoise": true, "noiseLevel": 0.3, "velocity": 0.4 }, "b": {}, "desc": "Reverb Send — star burst = spatial spread" },
+    "\"": { "t": { "ratchetCount": 2 }, "m": { "oscillator": "square", "velocity": 0.6 }, "b": { "staccato": true }, "desc": "Ratchet/Stutter — double marks = repeat" },
+    "[": { "t": { "loopStart": true }, "m": {}, "b": {}, "desc": "Loop Start — bracket opens a region" },
+    "]": { "t": { "loopEnd": true }, "m": {}, "b": {}, "desc": "Loop End — bracket closes a region" },
+    "^": { "t": { "panMod": 0.3, "microTiming": -0.02 }, "m": { "oscillator": "sawtooth", "velocity": 0.5 }, "b": { "attackMod": 0.5, "filterSweep": "up" }, "desc": "LFO/Mod Up — upward arrow = rising energy" },
+    "v": { "t": { "panMod": -0.3, "microTiming": 0.02 }, "m": { "oscillator": "triangle", "velocity": 0.4 }, "b": { "decayMod": 0.5, "filterSweep": "down" }, "desc": "LFO/Mod Down — downward arrow = falling energy" },
+    "+": { "t": { "microTiming": 0.05, "crossFade": 0.3 }, "m": { "oscillator": "square", "velocity": 0.7, "denseStrike": true }, "b": { "crossModPop": true }, "desc": "Microtiming/Cross — plus sign = intersection" },
+    "?": { "t": { "probability": 0.5 }, "m": {}, "b": {}, "desc": "Probability Gate — question = uncertainty" },
+
+    ".": { "t": {}, "m": { "oscillator": "sine", "velocity": 0.5, "softStrike": true }, "b": { "staccato": true, "decayMod": 0.2 }, "desc": "Short Sine Pluck — dot = point, brief" },
+    ",": { "t": {}, "m": { "oscillator": "sine", "velocity": 0.1, "ghostNote": true }, "b": { "staccato": true, "decayMod": 0.1 }, "desc": "Muted Ghost Note — comma = tiny, faint" },
+    "-": { "t": {}, "m": { "oscillator": "sine", "velocity": 0.6, "sustain": true, "tie": true }, "b": { "attackMod": 0.3, "releaseMod": 2.0 }, "desc": "Sustain Note — dash = held line" },
+    "_": { "t": {}, "m": { "oscillator": "sine", "subEmphasis": true, "subBass": true, "velocity": 0.8, "toneFreq": 60 }, "b": { "decayMod": 1.5, "attackMod": 0.3 }, "desc": "Sub Bass/Kick — underscore = deep ground" },
+    "'": { "t": {}, "m": { "oscillator": "sine", "highTick": true, "velocity": 0.4, "resonance": 8 }, "b": { "staccato": true, "decayMod": 0.1 }, "desc": "High Resonance Tick — apostrophe = sharp accent" },
+    "X": { "t": {}, "m": { "oscillator": "sawtooth", "denseStrike": true, "velocity": 1.0, "filterCutoff": 1.0 }, "b": { "percussive": true, "decayMod": 0.6 }, "desc": "Dense Strike (Full) — X = crossing, full bandwidth" },
+    "O": { "t": {}, "m": { "oscillator": "square", "hollowStrike": true, "velocity": 0.7, "filterCutoff": 0.5 }, "b": { "decayMod": 0.8, "releaseMod": 0.8 }, "desc": "Hollow Strike — O = round, hollow" },
+    "V": { "t": {}, "m": { "oscillator": "triangle", "smoothTransient": true, "velocity": 0.5 }, "b": { "attackMod": 2.0, "decayMod": 0.6, "swellMod": 0.3 }, "desc": "Smooth Transient — V = gradual shape" },
+    "I": { "t": {}, "m": { "oscillator": "sawtooth", "narrowStrike": true, "width": 0.1, "velocity": 0.6, "resonance": 6 }, "b": { "staccato": true, "filterSweep": "down" }, "desc": "Narrow Pulse Strike — I = thin line" },
+
+    "#": { "t": { "noiseSeed": true }, "m": { "oscillator": "noise", "addWhiteNoise": true, "noiseLevel": 0.8, "velocity": 0.7 }, "b": { "decayMod": 0.3, "percussive": true }, "desc": "White Noise Burst — hash = static/interference" },
+    "@": { "t": { "reverbSend": 0.2 }, "m": { "oscillator": "noise", "addPinkNoise": true, "noiseLevel": 0.8, "velocity": 0.6 }, "b": { "decayMod": 0.5, "granularOverride": 0.3 }, "desc": "Pink Noise Crush — at = colored noise" },
+    "%": { "t": { "delaySend": 0.2, "panMod": 0.2 }, "m": { "oscillator": "sine", "addInharmonicFM": true, "metallic": true, "velocity": 0.7, "modIndex": 500 }, "b": { "decayMod": 0.4, "crossModPop": true }, "desc": "Metallic FM — percent = modulation remainder" },
+    "W": { "t": { "delaySend": 0.2, "reverbSend": 0.2 }, "m": { "oscillator": "sawtooth", "heavyOverdrive": true, "distortion": 2.0, "velocity": 0.9 }, "b": { "distortion": 0.5, "granularOverride": 0.4, "decayMod": 0.8 }, "desc": "Heavy Overdrive — W = wide, distorted" },
+
+    "/": { "t": {}, "m": { "oscillator": "sawtooth", "velocity": 0.5 }, "b": { "attackMod": 5.0, "swellMod": 0.6, "filterSweep": "up" }, "desc": "Filter Ramp Up — forward slash = rising" },
+    "\\": { "t": {}, "m": { "oscillator": "square", "velocity": 0.6 }, "b": { "decayMod": 0.2, "percussive": true, "filterSweep": "down" }, "desc": "Filter Ramp Down — backslash = falling" },
+    "\u2554": { "t": {}, "m": { "oscillator": "sawtooth", "velocity": 0.5 }, "b": { "lfoStart": true, "attackMod": 0.5 }, "desc": "LFO Start — box draw corner = beginning" },
+    "\u2550": { "t": {}, "m": { "oscillator": "sine", "velocity": 0.4, "sustain": true, "tie": true }, "b": { "infiniteHold": true, "releaseMod": 3.0 }, "desc": "Infinite Hold — double line = continuous" },
+    "\u255d": { "t": {}, "m": { "oscillator": "triangle", "velocity": 0.4 }, "b": { "lfoEnd": true, "decayMod": 0.3 }, "desc": "LFO End — box draw corner = end" },
+    "\u256c": { "t": { "crossFade": 0.5, "delaySend": 0.2 }, "m": { "oscillator": "sawtooth", "addInharmonicFM": true, "velocity": 0.7 }, "b": { "crossModPop": true, "decayMod": 0.3 }, "desc": "Cross-Modulation Pop — crossing lines = modulation" },
+
+    "\u2591": { "t": { "reverbSend": 0.2 }, "m": { "oscillator": "noise", "velocity": 0.4 }, "b": { "granularOverride": 0.2, "decayMod": 0.8, "attackMod": 0.5 }, "desc": "Sparse Granular (20%) — light shade = sparse" },
+    "\u2592": { "t": { "reverbSend": 0.3 }, "m": { "oscillator": "noise", "velocity": 0.5 }, "b": { "granularOverride": 0.5, "decayMod": 0.6, "attackMod": 0.3 }, "desc": "Medium Granular (50%) — medium shade = grainy" },
+    "\u2593": { "t": { "reverbSend": 0.4, "delaySend": 0.2 }, "m": { "oscillator": "noise", "velocity": 0.6, "denseStrike": true }, "b": { "granularOverride": 0.8, "distortion": 1.0, "decayMod": 0.4 }, "desc": "Dense Granular (80%) — dark shade = dense" },
+    "\u2588": { "t": { "delaySend": 0.3, "reverbSend": 0.2 }, "m": { "oscillator": "sawtooth", "denseStrike": true, "velocity": 1.0, "filterCutoff": 1.0 }, "b": { "granularOverride": 1.0, "distortion": 3.0, "decayMod": 1.5 }, "desc": "Solid Granular Wall (100%) — full block = maximum" },
+
+    "\u2824": { "t": { "ratchetCount": 2, "microTiming": 0.02 }, "m": { "oscillator": "square", "velocity": 0.5 }, "b": { "staccato": true, "decayMod": 0.3 }, "desc": "Double Ratchet — braille dots = rhythmic subdivision" },
+    "\u2847": { "t": {}, "m": { "oscillator": "sawtooth", "denseStrike": true, "velocity": 0.8 }, "b": { "attackMod": 0.3, "percussive": true }, "desc": "Vertical Chord — braille column = stacked hit" },
+    "\u2809": { "t": { "microTiming": -0.03 }, "m": { "oscillator": "triangle", "velocity": 0.5, "highTick": true }, "b": { "staccato": true, "filterSweep": "up" }, "desc": "High Arp — braille top dots = high register" },
+    "\u2812": { "t": { "microTiming": 0.01 }, "m": { "oscillator": "sine", "velocity": 0.5 }, "b": { "decayMod": 0.5, "swellMod": 0.3 }, "desc": "Mid Arp — braille mid dots = middle register" },
+    "\u287f": { "t": { "ratchetCount": 3, "probability": 0.7, "delaySend": 0.2 }, "m": { "oscillator": "noise", "addWhiteNoise": true, "velocity": 0.8 }, "b": { "granularOverride": 0.6, "decayMod": 0.2, "staccato": true }, "desc": "Glitch Burst — braille full left = glitchy" },
+    "\u28ff": { "t": { "ratchetCount": 4, "delaySend": 0.3, "reverbSend": 0.3 }, "m": { "oscillator": "sawtooth", "denseStrike": true, "velocity": 1.0, "addWhiteNoise": true, "noiseLevel": 0.5 }, "b": { "granularOverride": 1.0, "distortion": 2.0, "decayMod": 1.2, "attackMod": 0.2 }, "desc": "Full Matrix — braille all dots = maximum density" },
+
+    "K": { "t": {}, "m": { "type": "tau_synth", "model": 1, "toneFreq": 60, "decay": 0.3 }, "b": { "decayMod": 0.8, "percussive": true }, "desc": "Kick (Classic Analog)" },
+    "H": { "t": { "reverbSend": 0.2 }, "m": { "type": "w_synth", "model": 8, "toneFreq": 440, "decay": 0.5, "filter": "lowpass", "filterCutoff": 0.5 }, "b": { "decayMod": 1.2, "attackMod": 0.5, "releaseMod": 1.5 }, "desc": "String (K-S Pluck)" },
+    "S": { "t": {}, "m": { "type": "w_synth", "model": 1, "toneFreq": 200, "decay": 0.15 }, "b": { "percussive": true, "decayMod": 0.5 }, "desc": "Snare (Classic Noise+Tone)" },
+    "C": { "t": { "reverbSend": 0.3 }, "m": { "type": "w_synth", "model": 11, "decay": 0.2, "filter": "bandpass", "filterCutoff": 0.4 }, "b": { "decayMod": 0.8, "granularOverride": 0.4 }, "desc": "Clap (Layered Noise)" },
+    "B": { "t": {}, "m": { "type": "w_synth", "model": 12, "toneFreq": 300, "decay": 0.12, "filter": "lowpass", "filterCutoff": 0.6 }, "b": { "percussive": true, "decayMod": 0.4 }, "desc": "Bongo (Tone Hit)" },
+    "N": { "t": {}, "m": { "type": "w_synth", "model": 3, "decay": 0.06, "filter": "highpass", "filterCutoff": 0.9 }, "b": { "staccato": true, "decayMod": 0.3 }, "desc": "Hat Closed (Short Noise)" },
+    "D": { "t": { "reverbSend": 0.2 }, "m": { "type": "w_synth", "model": 9, "decay": 0.25, "filter": "highpass", "filterCutoff": 0.8 }, "b": { "decayMod": 1.2, "releaseMod": 1.5 }, "desc": "Hat Open (Long Noise)" },
+    "P": { "t": {}, "m": { "type": "w_synth", "model": 13, "decay": 0.15, "filter": "bandpass", "filterCutoff": 0.3 }, "b": { "decayMod": 0.8, "granularOverride": 0.3 }, "desc": "Formant Perc (Vocal Body)" },
+
+    "a": { "t": {}, "m": { "type": "tau_synth", "model": 2, "decay": 0.3, "toneFreq": 50 }, "b": { "decayMod": 0.7, "percussive": true }, "desc": "Digital Kick (Square Punch)" },
+    "e": { "t": { "noiseSeed": true }, "m": { "type": "tau_synth", "model": 5, "decay": 0.2, "toneFreq": 80 }, "b": { "granularOverride": 0.3, "decayMod": 0.6 }, "desc": "Granular Kick (Noise Burst)" },
+    "k": { "t": {}, "m": { "type": "tau_synth", "model": 4, "decay": 0.35, "toneFreq": 45 }, "b": { "decayMod": 1.0, "attackMod": 0.5, "filterSweep": "down" }, "desc": "Modular Kick (Filter Sweep)" },
+    "o": { "t": { "delaySend": 0.1 }, "m": { "type": "tau_synth", "model": 3, "decay": 0.3, "toneFreq": 55 }, "b": { "decayMod": 0.6, "crossModPop": true }, "desc": "FM Kick (Metallic)" },
+    "u": { "t": { "microTiming": 0.03 }, "m": { "type": "tau_synth", "model": 6, "decay": 0.3, "toneFreq": 60 }, "b": { "granularOverride": 0.2, "decayMod": 0.5 }, "desc": "Unstable Kick (Jitter)" },
+
+    "b": { "t": {}, "m": { "type": "w_synth", "model": 2, "decay": 0.15, "toneFreq": 180, "filter": "bandpass", "filterCutoff": 0.5 }, "b": { "percussive": true, "decayMod": 0.4 }, "desc": "Binary Snare (Noise+Square)" },
+    "g": { "t": { "reverbSend": 0.2 }, "m": { "type": "w_synth", "model": 11, "decay": 0.2, "filter": "bandpass", "filterCutoff": 0.4 }, "b": { "granularOverride": 0.4, "decayMod": 0.7 }, "desc": "Granular Clap (Noise Bursts)" },
+    "j": { "t": { "probability": 0.8, "microTiming": 0.04 }, "m": { "type": "w_synth", "model": 5, "decay": 0.12, "toneFreq": 250, "filter": "bandpass", "filterCutoff": 0.4 }, "b": { "granularOverride": 0.3, "decayMod": 0.5 }, "desc": "Jitter Snare (Randomized)" },
+    "r": { "t": {}, "m": { "type": "w_synth", "model": 6, "decay": 0.15, "toneFreq": 400, "filter": "bandpass", "filterCutoff": 0.3 }, "b": { "decayMod": 0.5, "releaseMod": 0.6 }, "desc": "Ring Snare (Tone Ring)" },
+    "s": { "t": {}, "m": { "type": "w_synth", "model": 1, "decay": 0.12, "toneFreq": 200, "filter": "bandpass", "filterCutoff": 0.5 }, "b": { "percussive": true, "decayMod": 0.4, "staccato": true }, "desc": "Snare Noise (Pure Noise)" },
+    "z": { "t": { "reverbSend": 0.1 }, "m": { "type": "w_synth", "model": 7, "decay": 0.15, "toneFreq": 220, "filter": "bandpass", "filterCutoff": 0.45 }, "b": { "decayMod": 0.6, "granularOverride": 0.2 }, "desc": "Zonal Snare (Layered)" },
+
+    "c": { "t": {}, "m": { "type": "w_synth", "model": 3, "decay": 0.05, "filter": "highpass", "filterCutoff": 0.9 }, "b": { "staccato": true, "decayMod": 0.2 }, "desc": "Digital Hat (Tight Noise)" },
+    "h": { "t": {}, "m": { "type": "w_synth", "model": 10, "decay": 0.08, "toneFreq": 6000, "filter": "highpass", "filterCutoff": 0.8 }, "b": { "staccato": true, "releaseMod": 0.3 }, "desc": "Harmonic Hat (Tone+Noise)" },
+    "m": { "t": {}, "m": { "type": "w_synth", "model": 4, "decay": 0.06, "toneFreq": 8000, "filter": "highpass", "filterCutoff": 0.9 }, "b": { "staccato": true, "decayMod": 0.2 }, "desc": "Metal Hat (Metallic Ring)" },
+    "q": { "t": {}, "m": { "type": "w_synth", "model": 3, "decay": 0.04, "filter": "highpass", "filterCutoff": 0.95 }, "b": { "staccato": true, "decayMod": 0.15 }, "desc": "Noise Hat (Pure Noise)" },
+    "x": { "t": {}, "m": { "type": "w_synth", "model": 16, "decay": 0.1, "filter": "highpass", "filterCutoff": 0.5, "color": "pink" }, "b": { "staccato": true, "decayMod": 0.3, "granularOverride": 0.2 }, "desc": "Pink Perc (Pink Noise)" },
+
+    "d": { "t": {}, "m": { "type": "w_synth", "model": 14, "decay": 0.12, "toneFreq": 200, "filter": "bandpass", "filterCutoff": 0.5 }, "b": { "decayMod": 0.6, "percussive": true }, "desc": "Dual Perc (Two-tone)" },
+    "f": { "t": {}, "m": { "type": "w_synth", "model": 13, "decay": 0.15, "toneFreq": 400, "filter": "bandpass", "filterCutoff": 0.3 }, "b": { "decayMod": 0.8, "granularOverride": 0.3 }, "desc": "Formant Perc (Vocal Shape)" },
+    "i": { "t": {}, "m": { "type": "w_synth", "model": 15, "decay": 0.08 }, "b": { "staccato": true, "percussive": true, "decayMod": 0.2 }, "desc": "Impulse (Click)" },
+    "l": { "t": { "reverbSend": 0.15 }, "m": { "type": "w_synth", "model": 14, "decay": 0.15, "toneFreq": 300, "filter": "bandpass", "filterCutoff": 0.4 }, "b": { "decayMod": 0.7, "granularOverride": 0.2 }, "desc": "Layered Perc (Multi-layer)" },
+    "n": { "t": {}, "m": { "type": "w_synth", "model": 16, "decay": 0.1, "filter": "highpass", "filterCutoff": 0.6 }, "b": { "decayMod": 0.3, "granularOverride": 0.3 }, "desc": "Noise Perc (Colored Noise)" },
+    "p": { "t": {}, "m": { "type": "tau_synth", "model": 7, "decay": 0.06, "toneFreq": 120 }, "b": { "staccato": true, "percussive": true, "decayMod": 0.3 }, "desc": "Tick Perc (Short Click)" },
+    "t": { "t": {}, "m": { "type": "tau_synth", "model": 8, "decay": 0.08, "toneFreq": 200 }, "b": { "percussive": true, "decayMod": 0.4, "filterSweep": "down" }, "desc": "Triangle Tick (Triangle Wave)" },
+    "v": { "t": { "delaySend": 0.15 }, "m": { "type": "w_synth", "model": 17, "decay": 0.1, "toneFreq": 500, "filter": "bandpass", "filterCutoff": 0.4 }, "b": { "decayMod": 0.5, "crossModPop": true }, "desc": "Vector Perc (FM Sweep)" },
+    "y": { "t": {}, "m": { "type": "tau_synth", "model": 9, "decay": 0.2, "toneFreq": 150 }, "b": { "decayMod": 0.8, "attackMod": 0.5, "releaseMod": 1.2 }, "desc": "Synth Tom (Tuned Drum)" },
+
+    "w": { "t": {}, "m": { "type": "w_synth", "model": 3, "decay": 0.05, "filter": "highpass", "filterCutoff": 0.9, "color": "white" }, "b": { "staccato": true, "decayMod": 0.2 }, "desc": "White Hat (White Noise)" }
+  },
+
+  "domainKeys": {
+    "t": ["delaySend", "reverbSend", "ratchetCount", "probability", "panMod", "loopStart", "loopEnd", "microTiming", "crossFade", "noiseSeed", "chopperRate"],
+    "m": ["type", "model", "oscillator", "wave", "velocity", "denseStrike", "hollowStrike", "softStrike", "narrowStrike", "width", "smoothTransient", "ghostNote", "sustain", "tie", "subEmphasis", "subBass", "toneFreq", "highTick", "addWhiteNoise", "addPinkNoise", "addInharmonicFM", "noiseLevel", "heavyOverdrive", "distortion", "filterCutoff", "resonance", "modIndex", "metallic", "color", "filter"],
+    "b": ["attackMod", "decayMod", "releaseMod", "staccato", "percussive", "swellMod", "granularOverride", "distortion", "crossModPop", "lfoStart", "lfoEnd", "infiniteHold", "filterSweep", "resonance"]
+  }
+}

@@ -1,0 +1,121 @@
+import React, { useRef, useEffect, useState } from 'react';
+import { SCALES, NOTE_NAMES, MICROTONAL_SCALES } from '../AsciiEngine.js';
+
+const SEMITONE_LABELS = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+
+function getSemitones(scale, microScale) {
+  if (microScale && MICROTONAL_SCALES[microScale]) {
+    return MICROTONAL_SCALES[microScale];
+  }
+  return SCALES[scale] || SCALES['chromatic'];
+}
+
+function freqFromSemitone(semi) {
+  return 55 * Math.pow(2, semi / 12);
+}
+
+export default function MicroRoll({ channelId, patternLen, microNotes, onSetMicroNote, scale, root, color, show, microScale, isPlaying, currentStep }) {
+  const containerRef = useRef(null);
+  const [cellWidth, setCellWidth] = useState(6);
+
+  const scaleSemitones = getSemitones(scale, microScale);
+  const rootIdx = NOTE_NAMES.indexOf(root);
+
+  const noteLabels = [];
+  for (let oct = -1; oct < 2; oct++) {
+    scaleSemitones.forEach(semi => {
+      const absSemi = rootIdx + Math.round(semi / 100) + oct * 12;
+      if (absSemi >= 0 && absSemi < 36) {
+        noteLabels.push({ absSemi, label: SEMITONE_LABELS[absSemi % 12] + (Math.floor(absSemi / 12) - 1), freq: freqFromSemitone(absSemi) });
+      }
+    });
+  }
+
+  const noteCellHeight = Math.max(3, Math.min(6, Math.floor(120 / noteLabels.length)));
+
+  useEffect(() => {
+    if (!show || !containerRef.current) return;
+    const obs = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        const w = entry.contentRect.width;
+        const computed = Math.floor((w - 60) / Math.max(1, patternLen));
+        setCellWidth(Math.max(4, Math.min(12, computed)));
+      }
+    });
+    obs.observe(containerRef.current);
+    return () => obs.disconnect();
+  }, [show, patternLen]);
+
+  // Sync cell width to step grid
+  const stepCellWidth = 18; // matches ChannelRack step cell width
+  const effectiveCellWidth = Math.min(cellWidth, stepCellWidth);
+
+  return (
+    <div className="transition-all duration-500 ease-in-out"
+      style={{
+        maxHeight: show ? 9999 : 0,
+        opacity: show ? 1 : 0,
+        overflow: show ? 'visible' : 'hidden',
+        background: 'rgba(0,30,0,0.35)',
+        borderTop: show ? '1px solid rgba(0,255,100,0.15)' : '1px solid transparent',
+      }}>
+      <div ref={containerRef} className="flex items-start gap-2 px-3 py-2">
+        <span className="text-[9px] font-bold uppercase tracking-widest shrink-0 mt-1"
+          style={{ color: '#00ff66', textShadow: '0 0 4px #00ff66, 0 0 8px #00ff66', minWidth: 50 }}>
+          MICRO ∿
+        </span>
+        <div className="flex-1 overflow-hidden"
+          style={{ maxWidth: 'calc(100% - 60px)' }}>
+          <div className="flex gap-[1px]"
+            style={{ width: patternLen * (effectiveCellWidth + 1) }}>
+            {Array.from({ length: patternLen }, (_, stepIdx) => {
+              const note = microNotes[stepIdx] || 0;
+              const isActive = note > 0;
+              const isPlayStep = isPlaying && currentStep !== undefined && (currentStep % patternLen) === stepIdx;
+              return (
+                <div key={stepIdx} className="flex flex-col items-center" style={{
+                  width: effectiveCellWidth, position: 'relative',
+                  backgroundColor: isPlayStep ? 'rgba(0,255,100,0.08)' : 'transparent',
+                  transition: 'background-color 0.06s ease',
+                }}>
+                  {isPlayStep && (
+                    <div style={{
+                      position: 'absolute', top: -8, left: '50%', transform: 'translateX(-50%)',
+                      color: '#00ff66', fontSize: 7, fontWeight: 'bold',
+                      textShadow: '0 0 6px #00ff66', lineHeight: 1, zIndex: 5,
+                    }}>▼</div>
+                  )}
+                  {noteLabels.map((nl, ni) => {
+                    const isOn = isActive && Math.round(note / 100) === nl.absSemi;
+                    return (
+                      <div key={ni}
+                        onClick={() => {
+                          const newNote = isOn ? 0 : nl.absSemi * 100 + 50;
+                          onSetMicroNote(channelId, stepIdx, newNote);
+                        }}
+                        className="cursor-pointer"
+                        style={{
+                          width: effectiveCellWidth, height: noteCellHeight,
+                          backgroundColor: isOn ? '#00ff66' : 'transparent',
+                          boxShadow: isOn && isPlayStep
+                            ? '0 0 8px #00ff66, 0 0 16px #00ff66, inset 0 0 4px rgba(0,255,100,0.5)'
+                            : isOn ? '0 0 4px #00ff66, 0 0 8px #00ff66' : 'none',
+                          borderBottom: '1px solid rgba(0,255,100,0.04)',
+                          borderRight: '1px solid rgba(0,255,100,0.03)',
+                          transition: 'box-shadow 0.06s ease, background-color 0.06s ease',
+                        }}
+                        title={`${nl.label} (${nl.absSemi} semitones, ${nl.freq.toFixed(1)}Hz)`} />
+                    );
+                  })}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <span className="text-[8px] crt-dim ml-1 shrink-0 mt-1">
+          {scaleSemitones.length}p · {root}
+        </span>
+      </div>
+    </div>
+  );
+}
