@@ -2,7 +2,7 @@
 
 > ASCII-based DAW — character grid sequencer with native DSP synthesis, 9 Hellenic engine types, and a live-compiled math sandbox.
 
-![RAWPEARL5 UI](docs/ui.svg)
+![RAWPEARL5 UI](docs/screenshot.png)
 
 ---
 
