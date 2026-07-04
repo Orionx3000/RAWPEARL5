@@ -1,0 +1,191 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720">
+  <rect width="1280" height="720" fill="#050505"/>
+  
+  <!-- Header bar -->
+  <rect x="0" y="0" width="1280" height="40" fill="#0a0a0a"/>
+  <text x="15" y="26" fill="#ffcc00" font-family="monospace" font-size="14" font-weight="bold">RAWPEARL5 // ASCII_DAW</text>
+  <rect x="200" y="8" width="60" height="24" rx="3" fill="none" stroke="#ffcc00" stroke-width="1"/>
+  <text x="208" y="25" fill="#ffcc00" font-family="monospace" font-size="11">▶ PLAY</text>
+  <rect x="270" y="8" width="60" height="24" rx="3" fill="none" stroke="rgba(255,204,0,0.3)" stroke-width="1"/>
+  <text x="280" y="25" fill="rgba(255,204,0,0.6)" font-family="monospace" font-size="11">■ STOP</text>
+  <text x="360" y="25" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="11">BPM: 145</text>
+  <text x="460" y="25" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="11">▣ +NODE</text>
+  
+  <!-- Sidebar (DSP_ROOT) -->
+  <rect x="0" y="40" width="250" height="640" fill="#080808"/>
+  <rect x="0" y="40" width="250" height="28" fill="#0a0a0a"/>
+  <text x="10" y="58" fill="#ffcc00" font-family="monospace" font-size="11" font-weight="bold">DSP_ROOT:/</text>
+  <text x="8" y="82" fill="#ffcc00" font-family="monospace" font-size="10">[TIMBRE]</text>
+  <text x="20" y="97" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="10">[DENSE_STRIKE] (5)</text>
+  <text x="30" y="112" fill="#ffcc00" font-family="monospace" font-size="10">|— X Strikes</text>
+  <text x="30" y="125" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="10">|— I Narrow</text>
+  <text x="8" y="145" fill="#ffcc00" font-family="monospace" font-size="10">[ENVELOPE]</text>
+  <text x="20" y="160" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="10">[ENVELOPE_PLUCK] (3)</text>
+  <text x="8" y="180" fill="#ffcc00" font-family="monospace" font-size="10">[PERCUSSION]</text>
+  <text x="20" y="195" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="10">[PERCUSSION] (14)</text>
+  <text x="30" y="210" fill="#ffcc00" font-family="monospace" font-size="10">|— K Kick</text>
+  <text x="30" y="223" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="10">|— S Snare</text>
+  <text x="8" y="243" fill="#ffcc00" font-family="monospace" font-size="10">[HELLENIC]</text>
+  <text x="20" y="258" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="10">[ANALOG] (10)</text>
+  
+  <!-- Channel Rack -->
+  <rect x="250" y="40" width="1030" height="400" fill="#050505"/>
+  
+  <!-- Channel header -->
+  <rect x="258" y="46" width="1014" height="28" rx="2" fill="rgba(255,204,0,0.08)" stroke="rgba(255,204,0,0.2)" stroke-width="1"/>
+  <rect x="260" y="50" width="4" height="18" rx="2" fill="#ff4444"/>
+  <text x="270" y="64" fill="#ff4444" font-family="monospace" font-size="11" font-weight="bold">[τ]</text>
+  <text x="295" y="64" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="9">KICK</text>
+  <rect x="340" y="52" width="80" height="14" rx="2" fill="none" stroke="rgba(255,204,0,0.3)" stroke-width="1"/>
+  <text x="345" y="63" fill="#ffcc00" font-family="monospace" font-size="8">Classic Kick</text>
+  <text x="435" y="63" fill="rgba(255,204,0,0.4)" font-family="monospace" font-size="8">⌨ 📖 ✗</text>
+  <rect x="480" y="52" width="40" height="14" rx="2" fill="#ffcc00"/>
+  <text x="483" y="63" fill="#000" font-family="monospace" font-size="8" font-weight="bold">GATE:OFF</text>
+  <text x="530" y="63" fill="rgba(255,204,0,0.4)" font-family="monospace" font-size="8">V: ▬▬▬▬○▬▬ 100%</text>
+  
+  <!-- Grid - 32 steps -->
+  <rect x="258" y="78" width="1014" height="60" fill="rgba(255,204,0,0.02)"/>
+  <!-- Step cells (visual) -->
+  <g font-family="monospace" font-size="12" text-anchor="middle">
+    <!-- Row of step cells showing the 4-on-the-floor kick pattern -->
+    <rect x="262" y="82" width="28" height="22" rx="2" fill="rgba(255,204,0,0.08)" stroke="rgba(255,204,0,0.15)" stroke-width="1"/>
+    <text x="276" y="97" fill="#ffcc00">I</text>
+    <rect x="293" y="82" width="28" height="22" rx="2" fill="rgba(255,40,40,0.1)" stroke="#ff4444" stroke-width="1"/>
+    <text x="307" y="97" fill="#ff4444" font-weight="bold">K</text>
+    <rect x="324" y="82" width="28" height="22" rx="2" fill="rgba(255,204,0,0.08)" stroke="rgba(255,204,0,0.15)" stroke-width="1"/>
+    <text x="338" y="97" fill="#ffcc00">I</text>
+    <rect x="355" y="82" width="28" height="22" rx="2" fill="rgba(255,40,40,0.1)" stroke="#ff4444" stroke-width="1"/>
+    <text x="369" y="97" fill="#ff4444" font-weight="bold">K</text>
+    <rect x="386" y="82" width="28" height="22" rx="2" fill="rgba(255,204,0,0.08)" stroke="rgba(255,204,0,0.15)" stroke-width="1"/>
+    <text x="400" y="97" fill="#ffcc00">I</text>
+    <rect x="417" y="82" width="28" height="22" rx="2" fill="rgba(255,40,40,0.1)" stroke="#ff4444" stroke-width="1"/>
+    <text x="431" y="97" fill="#ff4444" font-weight="bold">K</text>
+    <rect x="448" y="82" width="28" height="22" rx="2" fill="rgba(255,204,0,0.08)" stroke="rgba(255,204,0,0.15)" stroke-width="1"/>
+    <text x="462" y="97" fill="#ffcc00">I</text>
+    <rect x="479" y="82" width="28" height="22" rx="2" fill="rgba(255,40,40,0.1)" stroke="#ff4444" stroke-width="1"/>
+    <text x="493" y="97" fill="#ff4444" font-weight="bold">K</text>
+  </g>
+  
+  <!-- MID layer -->
+  <rect x="258" y="106" width="1014" height="60" fill="rgba(255,204,0,0.01)"/>
+  <g font-family="monospace" font-size="12" text-anchor="middle">
+    <rect x="262" y="110" width="28" height="22" rx="2" fill="rgba(255,204,0,0.08)" stroke="rgba(255,204,0,0.15)" stroke-width="1"/>
+    <text x="276" y="125" fill="#ffcc00">I</text>
+    <rect x="293" y="110" width="28" height="22" rx="2" fill="rgba(0,255,100,0.1)" stroke="#00ff66" stroke-width="1"/>
+    <text x="307" y="125" fill="#00ff66">S</text>
+    <rect x="324" y="110" width="28" height="22" rx="2" fill="rgba(255,204,0,0.1)" stroke="#ffcc00" stroke-width="1"/>
+    <text x="338" y="125" fill="#ffcc00" font-weight="bold">X</text>
+    <rect x="355" y="110" width="28" height="22" rx="2" fill="rgba(255,204,0,0.08)" stroke="rgba(255,204,0,0.15)" stroke-width="1"/>
+    <text x="369" y="125" fill="#ffcc00">I</text>
+    <rect x="386" y="110" width="28" height="22" rx="2" fill="rgba(0,255,100,0.1)" stroke="#00ff66" stroke-width="1"/>
+    <text x="400" y="125" fill="#00ff66">S</text>
+    <rect x="417" y="110" width="28" height="22" rx="2" fill="rgba(255,204,0,0.1)" stroke="#ffcc00" stroke-width="1"/>
+    <text x="431" y="125" fill="#ffcc00" font-weight="bold">X</text>
+    <rect x="448" y="110" width="28" height="22" rx="2" fill="rgba(255,204,0,0.08)" stroke="rgba(255,204,0,0.15)" stroke-width="1"/>
+    <text x="462" y="125" fill="#ffcc00">I</text>
+    <rect x="479" y="110" width="28" height="22" rx="2" fill="rgba(0,255,100,0.1)" stroke="#00ff66" stroke-width="1"/>
+    <text x="493" y="125" fill="#00ff66">S</text>
+  </g>
+  
+  <!-- More channels -->
+  <rect x="258" y="170" width="1014" height="28" rx="2" fill="rgba(0,255,100,0.06)" stroke="rgba(0,255,100,0.15)" stroke-width="1"/>
+  <rect x="260" y="174" width="4" height="18" rx="2" fill="#00cc66"/>
+  <text x="270" y="188" fill="#00cc66" font-family="monospace" font-size="11" font-weight="bold">[w]</text>
+  <text x="295" y="188" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="9">SNARE</text>
+  <rect x="340" y="176" width="80" height="14" rx="2" fill="none" stroke="rgba(255,204,0,0.3)" stroke-width="1"/>
+  <text x="345" y="187" fill="#ffcc00" font-family="monospace" font-size="8">Classic Snare</text>
+  
+  <rect x="258" y="202" width="1014" height="28" rx="2" fill="rgba(255,200,0,0.06)" stroke="rgba(255,200,0,0.15)" stroke-width="1"/>
+  <rect x="260" y="206" width="4" height="18" rx="2" fill="#ffaa00"/>
+  <text x="270" y="220" fill="#ffaa00" font-family="monospace" font-size="11" font-weight="bold">[α]</text>
+  <text x="295" y="220" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="9">BASS</text>
+  <rect x="340" y="208" width="80" height="14" rx="2" fill="none" stroke="rgba(255,204,0,0.3)" stroke-width="1"/>
+  <text x="345" y="219" fill="#ffcc00" font-family="monospace" font-size="8">Acid 303</text>
+  
+  <rect x="258" y="234" width="1014" height="28" rx="2" fill="rgba(100,100,255,0.06)" stroke="rgba(100,100,255,0.15)" stroke-width="1"/>
+  <rect x="260" y="238" width="4" height="18" rx="2" fill="#6666ff"/>
+  <text x="270" y="252" fill="#6666ff" font-family="monospace" font-size="11" font-weight="bold">[π]</text>
+  <text x="295" y="252" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="9">PLUCK</text>
+  <rect x="340" y="240" width="80" height="14" rx="2" fill="none" stroke="rgba(255,204,0,0.3)" stroke-width="1"/>
+  <text x="345" y="251" fill="#ffcc00" font-family="monospace" font-size="8">Steel String</text>
+  
+  <rect x="258" y="266" width="1014" height="28" rx="2" fill="rgba(255,204,0,0.06)" stroke="rgba(255,204,0,0.15)" stroke-width="1"/>
+  <rect x="260" y="270" width="4" height="18" rx="2" fill="#ffcc00"/>
+  <text x="270" y="284" fill="#ffcc00" font-family="monospace" font-size="11" font-weight="bold">[γ]</text>
+  <text x="295" y="284" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="9">PAD</text>
+  <rect x="340" y="272" width="80" height="14" rx="2" fill="none" stroke="rgba(255,204,0,0.3)" stroke-width="1"/>
+  <text x="345" y="283" fill="#ffcc00" font-family="monospace" font-size="8">Cloud Pad</text>
+  
+  <!-- Sound Design Panel (bottom) -->
+  <rect x="250" y="305" width="500" height="170" fill="#0a0a0a"/>
+  <rect x="250" y="305" width="500" height="22" fill="#0d0d0d"/>
+  <text x="260" y="320" fill="#ffcc00" font-family="monospace" font-size="10" font-weight="bold">SOUND_DESIGN // [τ] Classic Kick</text>
+  
+  <!-- ADSR envelope -->
+  <text x="265" y="342" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="9">ATTACK</text>
+  <rect x="310" y="332" width="80" height="14" rx="2" fill="rgba(255,204,0,0.1)" stroke="rgba(255,204,0,0.3)" stroke-width="1"/>
+  <rect x="310" y="332" width="4" height="14" rx="2" fill="#ffcc00"/>
+  <text x="405" y="342" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="9">DECAY</text>
+  <rect x="445" y="332" width="80" height="14" rx="2" fill="rgba(255,204,0,0.1)" stroke="rgba(255,204,0,0.3)" stroke-width="1"/>
+  <rect x="445" y="332" width="30" height="14" rx="2" fill="#ffcc00"/>
+  
+  <text x="265" y="365" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="9">CUTOFF</text>
+  <rect x="310" y="355" width="80" height="14" rx="2" fill="rgba(255,204,0,0.1)" stroke="rgba(255,204,0,0.3)" stroke-width="1"/>
+  <rect x="350" y="355" width="40" height="14" rx="2" fill="#ffcc00"/>
+  <text x="405" y="365" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="9">RES</text>
+  <rect x="430" y="355" width="50" height="14" rx="2" fill="rgba(255,204,0,0.1)" stroke="rgba(255,204,0,0.3)" stroke-width="1"/>
+  <rect x="446" y="355" width="30" height="14" rx="2" fill="#ffcc00"/>
+  
+  <text x="265" y="388" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="9">TUNE</text>
+  <rect x="300" y="378" width="40" height="14" rx="2" fill="none" stroke="rgba(255,204,0,0.3)" stroke-width="1"/>
+  <text x="310" y="389" fill="#ffcc00" font-family="monospace" font-size="9">60</text>
+  <text x="355" y="388" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="9">MODEL</text>
+  <select><rect x="395" y="378" width="50" height="14" rx="2" fill="none" stroke="rgba(255,204,0,0.3)" stroke-width="1"/></select>
+  <text x="405" y="389" fill="#ffcc00" font-family="monospace" font-size="9">808 Kick</text>
+  
+  <!-- Mixer (right bottom) -->
+  <rect x="750" y="305" width="530" height="170" fill="#0a0a0a"/>
+  <rect x="750" y="305" width="530" height="22" fill="#0d0d0d"/>
+  <text x="760" y="320" fill="#ffcc00" font-family="monospace" font-size="10" font-weight="bold">MIXER</text>
+  
+  <!-- Mixer strips -->
+  <rect x="760" y="332" width="56" height="130" rx="2" fill="rgba(255,68,68,0.08)" stroke="rgba(255,68,68,0.3)" stroke-width="1"/>
+  <text x="775" y="345" fill="#ff4444" font-family="monospace" font-size="8" text-anchor="middle">τ</text>
+  <rect x="768" y="350" width="40" height="80" rx="2" fill="rgba(255,204,0,0.05)"/>
+  <rect x="774" y="370" width="28" height="60" rx="1" fill="#ffcc00"/>
+  
+  <rect x="822" y="332" width="56" height="130" rx="2" fill="rgba(0,204,102,0.08)" stroke="rgba(0,204,102,0.3)" stroke-width="1"/>
+  <text x="837" y="345" fill="#00cc66" font-family="monospace" font-size="8" text-anchor="middle">w</text>
+  <rect x="830" y="350" width="40" height="80" rx="2" fill="rgba(255,204,0,0.05)"/>
+  <rect x="836" y="380" width="28" height="50" rx="1" fill="#00cc66"/>
+  
+  <rect x="884" y="332" width="56" height="130" rx="2" fill="rgba(255,170,0,0.08)" stroke="rgba(255,170,0,0.3)" stroke-width="1"/>
+  <text x="899" y="345" fill="#ffaa00" font-family="monospace" font-size="8" text-anchor="middle">α</text>
+  <rect x="892" y="350" width="40" height="80" rx="2" fill="rgba(255,204,0,0.05)"/>
+  <rect x="898" y="390" width="28" height="40" rx="1" fill="#ffaa00"/>
+  
+  <rect x="946" y="332" width="56" height="130" rx="2" fill="rgba(100,100,255,0.08)" stroke="rgba(100,100,255,0.3)" stroke-width="1"/>
+  <text x="961" y="345" fill="#6666ff" font-family="monospace" font-size="8" text-anchor="middle">π</text>
+  <rect x="954" y="350" width="40" height="80" rx="2" fill="rgba(255,204,0,0.05)"/>
+  <rect x="960" y="385" width="28" height="45" rx="1" fill="#6666ff"/>
+  
+  <rect x="1008" y="332" width="56" height="130" rx="2" fill="rgba(255,204,0,0.08)" stroke="rgba(255,204,0,0.3)" stroke-width="1"/>
+  <text x="1023" y="345" fill="#ffcc00" font-family="monospace" font-size="8" text-anchor="middle">γ</text>
+  <rect x="1016" y="350" width="40" height="80" rx="2" fill="rgba(255,204,0,0.05)"/>
+  <rect x="1022" y="388" width="28" height="42" rx="1" fill="#ffcc00"/>
+  
+  <!-- Master strip -->
+  <rect x="1070" y="332" width="56" height="130" rx="2" fill="rgba(255,204,0,0.15)" stroke="#ffcc00" stroke-width="1"/>
+  <text x="1085" y="345" fill="#ffcc00" font-family="monospace" font-size="8" font-weight="bold" text-anchor="middle">MASTER</text>
+  <rect x="1078" y="350" width="40" height="80" rx="2" fill="rgba(255,204,0,0.1)"/>
+  <rect x="1084" y="355" width="28" height="75" rx="1" fill="#ffcc00"/>
+  
+  <!-- Master FX -->
+  <text x="1145" y="345" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="9">DELAY</text>
+  <text x="1145" y="365" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="9">REV</text>
+  <text x="1145" y="385" fill="rgba(255,204,0,0.5)" font-family="monospace" font-size="9">DIST</text>
+  
+  <!-- Bottom bar -->
+  <rect x="0" y="690" width="1280" height="30" fill="#0a0a0a"/>
+  <text x="15" y="710" fill="rgba(255,204,0,0.4)" font-family="monospace" font-size="10">{'>'} clear | euclid(N) | fill X | bpm N | root C | vol N</text>
+</svg>
